@@ -11,12 +11,13 @@
       (async () => {
         const response = await fetch('https://api.github.com/users/lapidooo/repos');
         const data = await response.json();
-        let htmlString = '<ul>';
+        let htmlString = '<dt>';
         for (let file of data) {
-          htmlString += `<li><a href="${file.html_url}">${file.name}</a></li>`;
+          htmlString += `[${file.name}](${file.html_url})`;
         }
-        htmlString += '</ul>';
+        htmlString += '</dt>';
         document.getElementsByTagName('body')[0].innerHTML = htmlString;
       })()
 </script>
 </dl>
+----
